@@ -1,14 +1,21 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
-import { RouteRecordRaw } from 'vue-router';
 
-const routes: Array<RouteRecordRaw> = [
+const routes = [
   {
     path: '',
-    redirect: '/folder/Inbox'
+    redirect: '/folder/E-commerce'
   },
   {
     path: '/folder/:id',
     component: () => import ('../views/Folder.vue')
+  },
+  {
+    path: '/productos',
+    component: () => import ('../views/Productos.vue')
+  },
+  {
+    path: '/cart',
+    component: () => import ('../views/Cart.vue')
   }
 ]
 

@@ -6,6 +6,9 @@
           <ion-menu-button color="primary"></ion-menu-button>
         </ion-buttons>
         <ion-title>{{ $route.params.id }}</ion-title>
+        <ion-button slot="end" router-direction="root" router-link="../cart">
+            <ion-icon class="icon" slot="end" :ios="cartOutline" :md="cartOutline"></ion-icon>
+        </ion-button>
       </ion-toolbar>
     </ion-header>
     
@@ -18,14 +21,15 @@
     
       <div id="container">
         <strong class="capitalize">{{ $route.params.id }}</strong>
-        <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+        <!-- <p>Explore <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p> -->
       </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script lang="ts">
-import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar } from '@ionic/vue';
+import { IonButtons, IonContent, IonHeader, IonMenuButton, IonPage, IonTitle, IonToolbar, IonIcon, IonButton } from '@ionic/vue';
+import { cartOutline } from 'ionicons/icons';
 
 export default {
   name: 'Folder',
@@ -36,8 +40,15 @@ export default {
     IonMenuButton,
     IonPage,
     IonTitle,
-    IonToolbar
-  }
+    IonToolbar,
+    IonIcon,
+    IonButton
+  },
+   setup() {
+      return {
+          cartOutline
+      }
+  } 
 }
 </script>
 
@@ -65,5 +76,10 @@ export default {
 
 #container a {
   text-decoration: none;
+}
+
+.icon{
+    margin-right: 10px;
+    font-size: 30px;
 }
 </style>
